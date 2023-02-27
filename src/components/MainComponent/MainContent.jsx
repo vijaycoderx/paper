@@ -70,7 +70,7 @@ function MainContent(props) {
     // }
     let kick = async () => {
         let xor = await RAW["cbses"] 
-        console.log( await Object.keys(xor))
+        console.log( Object.keys(xor))
     }
     kick()
 
