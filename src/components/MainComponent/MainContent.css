@@ -1,0 +1,120 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+.maincontainer{
+    height: 100%;
+    width: 100%;
+    /* padding: 0px 20px 5px; */
+    box-sizing: border-box;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background-color: wheat; */
+}
+
+.dirbar{
+    height: 10%;
+    width: 100%;
+
+    background-color: white;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    /* border-radius: 5px; */
+}
+.dirbar p{
+    margin-right: 10px;
+}
+
+.underdir{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90%;
+    width: 100%;
+    box-sizing: border-box;
+    padding-top: 2.5px;
+}
+
+.underdir .sidebar{
+    margin-right: 5px;
+    height: 100%;
+    width: 20%;
+    
+    border: none;
+    /* border-radius: 5px; */
+    background-color: white;
+    box-sizing: border-box;
+    /* overflow-y: scroll; */
+}
+.underdir .sidebar .topside{
+    height: 10%;
+    width: 100%;
+    padding: 0px 5px;
+    /* background-color: red; */
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+}
+.underdir .sidebar .topside .topsideimg{
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+.underdir .sidebar .topside .topsideimg img{
+    height: 80%;
+    width: 80%;
+}
+
+
+
+.underdir .mainsection{
+    height: 100%;
+    width: 80%;
+
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+    box-sizing: border-box;
+    padding: 0px;
+
+    
+    
+    
+    /* row-gap: 10px; */
+
+    overflow-y: scroll;
+    
+}
+.underdir .mainsection .mainsectiondata{
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: repeat();
+    place-items: center;
+}
+.underdir .mainsection .topdataside{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    /* background-color: red; */
+    height: 10%;
+}
+.underdir .mainsection .topdataside img{
+    height: 80%;
+    /* width: 80%; */
+}
+
+.sidebar .dataside{
+    /* background-color: red; */
+    height: 90%;
+    overflow-x: visible;
+    overflow-y: scroll;
+    
+    padding: 0px 5px;
+}
