@@ -14,6 +14,7 @@ function Modifier(props) {
             console.log("folder dataall", { ...props.coredata })
             axios.post('http://localhost:8000/update', {...props.coredata, renamevalue: renamevalue, category: props.category} )
             console.log("server data", props.coredata)
+            
         }
         else if (props.category == "subfolder") {
             console.log(props.renderer_holder, "rendereeeeeeeeeeeeer")
@@ -40,6 +41,14 @@ function Modifier(props) {
             
             axios.post('http://localhost:8000/update', { collectionname: props.location[0], renamevalue: renamevalue, location: props.location, idholder: props.id_holder, valholder:props.val_holder, toUpdate: props.toUpdate, modified: updateCook, category: props.category })
             console.log("iddd holddder", props.id_holder)
+
+            console.log(props.changer[0])
+            props.changer[1]((item) => {
+                console.log(props.toUpdate)
+                return (
+                    props.toUpdate
+                )
+            })
             
         }
         else if (props.category == "link") {

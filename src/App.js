@@ -14,19 +14,30 @@ import Download from './components/MainComponent/Download';
 function App() {
   
   const [wholedata, setwholedata] = useState([])
+  const [CHANGER, SETCHANGER] = useState("hi")
   
   useEffect(() => {
+
     async function x() {
       // console.log("hey")
       const fetchdata = await axios.get("http://localhost:8000/userdata")
-      setwholedata(fetchdata.data)
+      setwholedata(await fetchdata.data)
+      // nsole.log(await fetchdata)
+      
       // console.log(wholedata)
     }
-    x()
+    x(); x(); x()
+    // x()
     
-   console.log(wholedata ) 
+    // async function y() {
+    //   let d = await wholedata
+    //   console.log(await wholedata)
+    // }
     
-  },[])
+    
+  }, [CHANGER])
+  
+  console.log(wholedata, CHANGER)
   
   return (
     // <div className="App">
@@ -53,7 +64,7 @@ function App() {
       </header>
 
       <main className='mainlayout'>
-        <MainContent data={wholedata}  />
+        <MainContent data={wholedata} changer={[CHANGER, SETCHANGER]} />
       </main>
         
       <footer className='footerlayout'>

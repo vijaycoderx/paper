@@ -10,7 +10,7 @@ function Folderfile(props) {
             let createfile = prompt()
             axios.post('http://localhost:8000/addDocument', { collectionname: props.location[0], renamevalue: createfile })
             
-            props.rendererholder = [{"fred": ""}]
+            // props.rendererholder = [{"fred": ""}]
         } else if (props.rendererholder.length === 1 && props.rendererholder[0] == "") {
             console.log(props.rendererholder[0], "folder or file")
             props.folderadder()

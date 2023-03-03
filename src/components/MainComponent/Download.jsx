@@ -21,13 +21,22 @@ function Download(props) {
 
     console.log(real, "useeffect")
 
-    
+    function change() {
+        console.log(props.RAW[0])
+
+        props.RAW[1]((item) => {
+            return (
+                { ...item, "dog": {"df": "xdfg"} }
+            )
+        })
+        console.log(props.RAW[0])
+    }
     
 
     return (
         <div>
             <p>data</p>
-            <button onClick={() => console.log("x")}>refresh</button>
+            <button onClick={change}>refresh</button>
         </div>
     )
     
