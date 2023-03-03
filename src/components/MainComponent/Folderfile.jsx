@@ -9,11 +9,18 @@ function Folderfile(props) {
             console.log("no document")
             let createfile = prompt()
             axios.post('http://localhost:8000/addDocument', { collectionname: props.location[0], renamevalue: createfile })
+
+            props.changer[1]((item) => {
+                return (
+                    createfile
+                )
+            })
             
             // props.rendererholder = [{"fred": ""}]
         } else if (props.rendererholder.length === 1 && props.rendererholder[0] == "") {
             console.log(props.rendererholder[0], "folder or file")
             props.folderadder()
+            
         } else if (props.rendererholder.length >= 1 && typeof(props.rendererholder[0]) == "object") {
             console.log(props.rendererholder[0], "only folders")
             props.folderadder()

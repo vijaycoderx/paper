@@ -462,10 +462,20 @@ function MainContent(props) {
 
         if (location.length == 1) {
             updatedata = { [createfile]: "" }
-            axios.post('http://localhost:8000/adddata', {location: location, collectionname: location[0], idholder: idfinal, modified: updatedata})
+            axios.post('http://localhost:8000/adddata', { location: location, collectionname: location[0], idholder: idfinal, modified: updatedata })
+            props.changer[1]((item) => {
+                return (
+                    createfile
+                )
+            })
         }
         else {
-            axios.post('http://localhost:8000/adddata', {location: location, valholderx: valfinal, collectionname: location[0], addvalue:createfile, idholder: idfinal, modified: updatedata})
+            axios.post('http://localhost:8000/adddata', { location: location, valholderx: valfinal, collectionname: location[0], addvalue: createfile, idholder: idfinal, modified: updatedata })
+            props.changer[1]((item) => {
+                return (
+                    createfile
+                )
+            })
         }
     }
 
@@ -478,7 +488,12 @@ function MainContent(props) {
             
         }
         else {
-            axios.post('http://localhost:8000/update', {location: location, valholderx: valfinal, collectionname: location[0], addvalue:createfile, idholder: idfinal, modified: createfile})
+            axios.post('http://localhost:8000/update', { location: location, valholderx: valfinal, collectionname: location[0], addvalue: createfile, idholder: idfinal, modified: createfile })
+            props.changer[1]((item) => {
+                return (
+                    createfile
+                )
+            })
         }
     }
 
@@ -593,7 +608,7 @@ function MainContent(props) {
                             <img src="https://img.icons8.com/parakeet/48/null/add.png" alt="" onClick={() => filefolder.filefolderselected ? setfilefolder({filefolderselected : false}) : setfilefolder({filefolderselected : true})} />
 
                             <div className="folderfileholder" style={{}}>
-                                {filefolder.filefolderselected ? <Folderfile folderadder={folderAdder} fileadder={fileAdder} rendererholder={renderer} location={location} /> : console.log("filefolder")}
+                                {filefolder.filefolderselected ? <Folderfile folderadder={folderAdder} fileadder={fileAdder} rendererholder={renderer} changer={props.changer} location={location} /> : console.log("filefolder")}
                             </div>
                             
                         </div>
