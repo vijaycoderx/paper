@@ -16,26 +16,73 @@ function Folder(props) {
                 props.name
             )
         })
-        props.globallocation[1]((item) => {
-            let lister = []
-            if (props.globallocation[0][(props.globallocation[0].length - 1)] === props.name){
-                console.log("verrrrrrry trrrrruee")
-                lister = [...item]
-            }
-            else {
-                console.log("verrrrrrry ffaalssee")
-                if (props.category == "sidebarcomp") {
-                    lister = [props.name]
+        // props.globallocation[1]((item) => {
+        //     let lister = []
+        //     if (props.globallocation[0][(props.globallocation[0].length - 1)] === props.name){
+        //         console.log("verrrrrrry trrrrruee")
+        //         lister = [...item]
+        //     }
+        //     else {
+        //         console.log("verrrrrrry ffaalssee")
+        //         if (props.category == "sidebarcomp") {
+        //             lister = [props.name]
+        //         }
+        //         else {
+        //             lister = [...item,props.name]
+        //         }
+                
+        //     }
+        //     return (
+        //         lister
+        //     )
+        // })
+
+
+        if (props.category == "sidebarcomp") {
+            props.globallocation[1]((item) => {
+                let lister = []
+                if (props.globallocation[0] === props.name){
+                    console.log("verrrrrrry trrrrruee")
+                    lister = [...item]
                 }
                 else {
-                    lister = [...item,props.name]
+                    console.log("verrrrrrry ffaalssee")
+                    if (props.category == "sidebarcomp") {
+                        lister = [props.name]
+                    }
+                    else {
+                        lister = [...item,props.name]
+                    }
+                    
                 }
-                
-            }
-            return (
-                lister
-            )
-        })
+                return (
+                    lister
+                )
+            })
+            
+        }
+        else if (props.category == "maincomp"){
+            props.globallocation[1]((item) => {
+                let lister = []
+                if (props.globallocation[0][(props.globallocation[0].length - 1)] === props.name){
+                    console.log("verrrrrrry trrrrruee")
+                    lister = [...item]
+                }
+                else {
+                    console.log("verrrrrrry ffaalssee")
+                    if (props.category == "sidebarcomp") {
+                        lister = [props.name]
+                    }
+                    else {
+                        lister = [...item,props.name]
+                    }
+                    
+                }
+                return (
+                    lister
+                )
+            })            
+        }
         console.log("props.name", props.name)
         console.log(props.selector[0])
         console.log(props.maindata)
@@ -49,12 +96,26 @@ function Folder(props) {
     
     function threedots(e) {
         e.stopPropagation();
-        let x = props.dotselector[0]
-        props.dotselector[1]((item) => {
-            return (
-                props.name + "modifier"
-            )
-        })
+        // let x = props.dotselector[0]
+        // props.dotselector[1]((item) => {
+        //     return (
+        //         props.name + "modifier"
+        //     )
+        // })
+
+        if (props.dotselector[0] == props.name + "modifier") {
+            props.dotselector[1]((item) => {
+                return (
+                    ""
+                )
+            })
+        } else {
+            props.dotselector[1]((item) => {
+                return (
+                    props.name + "modifier"
+                )
+            })    
+        }
 
 
         // console.log(props.dotselector[0], "xxxxxxxxxxxxxxxxxxxxxyyyyyyyyyyyyyyyyyyyyzzzzzzzzzzzzzzzzzzzzzz")

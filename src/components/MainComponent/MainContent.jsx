@@ -240,7 +240,7 @@ function MainContent(props) {
                 boarddatas
             )
         })
-    }, [props.data, props.changer[0], selected])
+    }, [props.data, props.changer[0], selected, dotselect])
     // render_boarddata = 
 
 
@@ -395,8 +395,9 @@ function MainContent(props) {
             let listOfKeys = []
             if (typeof (PRESENTDATAX) == "object") {
                 listOfKeys = Object.keys(PRESENTDATAX).map((item) => {
+                    console.log(RAWX, item, location[1] != undefined ? RAWX[location[0]][location[1]]["_id"] : RAWX[location[0]][item]["_id"], location, PRESENTDATAX, PRESENTDATA)
                     return (
-                        typeof (PRESENTDATAX) === "object"  ? <Subfolder key={Math.random()} name={item}  selector={[selected, setselected]} globallocation={[location, setlocation]} category={"maincomp"} dotselector={[dotselect, setdotselect]} changer={props.changer} idholder={RAWX[location[0]][item]["_id"]} valholder={cookeddata} rendererholder={renderer} /> : item != "" ? <Link key={Math.random()} name={PRESENTDATAX} dotselector={[dotselect, setdotselect]} globallocation={[location, setlocation]} idholder={idfinal} rendererholder={renderer} /> : ""
+                        typeof (PRESENTDATAX) === "object"  ? <Subfolder key={Math.random()} name={item}  selector={[selected, setselected]} globallocation={[location, setlocation]} category={"maincomp"} dotselector={[dotselect, setdotselect]} changer={props.changer} idholder={location[1] != undefined ? RAWX[location[0]][location[1]]["_id"] : RAWX[location[0]][item]["_id"]} valholder={cookeddata} rendererholder={renderer} /> : item != "" ? <Link key={Math.random()} name={PRESENTDATAX} dotselector={[dotselect, setdotselect]} globallocation={[location, setlocation]} idholder={location[1] != undefined ? RAWX[location[0]][location[1]]["_id"] : RAWX[location[0]][item]["_id"]} rendererholder={renderer} /> : ""
                     )
                 })                
             } else {
@@ -404,7 +405,7 @@ function MainContent(props) {
                 listOfKeys = [PRESENTDATAX].map((item) => {
                     console.log(item)
                     return (
-                        typeof (PRESENTDATAX) === "object"  ? <Subfolder key={Math.random()} name={item}  selector={[selected, setselected]} globallocation={[location, setlocation]} category={"maincomp"} dotselector={[dotselect, setdotselect]} changer={props.changer} idholder={RAWX[location[0]][PRESENTDATA]["_id"]} valholder={cookeddata} rendererholder={renderer} /> : item != "" ? <Link key={Math.random()} name={PRESENTDATAX} dotselector={[dotselect, setdotselect]} globallocation={[location, setlocation]} idholder={idfinal} rendererholder={renderer} /> : ""
+                        typeof (PRESENTDATAX) === "object"  ? <Subfolder key={Math.random()} name={item}  selector={[selected, setselected]} globallocation={[location, setlocation]} category={"maincomp"} dotselector={[dotselect, setdotselect]} changer={props.changer} idholder={location[1] != undefined ? RAWX[location[0]][location[1]]["_id"] : RAWX[location[0]][item]["_id"]} valholder={cookeddata} rendererholder={renderer} /> : item != "" ? <Link key={Math.random()} name={PRESENTDATAX} dotselector={[dotselect, setdotselect]} globallocation={[location, setlocation]} idholder={location[1] != undefined ? RAWX[location[0]][location[1]]["_id"] : RAWX[location[0]][item]["_id"]} rendererholder={renderer} /> : ""
                     )
                 })                
             }
@@ -418,7 +419,7 @@ function MainContent(props) {
         })
 
         // render_maindata = 
-    }, [PRESENTDATAX, dotselect, props.data])
+    }, [PRESENTDATAX, dotselect])
     
         
     console.log(render_boarddata)

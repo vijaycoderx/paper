@@ -57,7 +57,8 @@ function Modifier(props) {
         
     }
 
-    function deleteData() {
+    function deleteData(e) {
+        e.stopPropagation()
         if (props.category == "folder") {
             console.log("folder delete clicked", props.location)
             axios.post('http://localhost:8000/delete', {location: props.location, collectionname: props.location[0], category: props.category})
