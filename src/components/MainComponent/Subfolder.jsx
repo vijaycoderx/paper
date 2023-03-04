@@ -114,7 +114,7 @@ function Subfolder(props) {
                 {/* Note: img is not properly aligned in div */}
                 <div className="threedot" style={{ backgroundColor: "white", position:"relative" }}>
                     <img src="https://img.icons8.com/ios-glyphs/30/null/menu-2.png" style={{ backgroundColor: "white" }} onClick={subthreedots} />
-                    {props.dotselector[0] == props.name ? <Modifier key={Math.random()} category={"subfolder"} location={props.globallocation[0]} changer={props.changer} id_holder={props.idholder} val_holder={props.valholder} toUpdate={props.name} renderer_holder={props.rendererholder} /> : console.log("submodifier", props.name, props.dotselector[0])}
+                    {props.dotselector[0] == props.name ? <Modifier key={Math.random()} category={"subfolder"} location={props.globallocation[0]} changer={props.changer} id_holder={props.idholder} val_holder={props.valholder} toUpdate={props.name} presentdatax={props.presentdatax} renderer_holder={props.rendererholder} /> : console.log("submodifier", props.name, props.dotselector[0])}
                 </div>
                 
             </div>

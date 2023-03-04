@@ -147,7 +147,7 @@ function Folder(props) {
                 <img src="https://img.icons8.com/color/60/null/folder-invoices--v1.png" />
                 <div className="threedot" style={{position: "relative", overflow: "visible", backgroundColor: "inherit"}} onClick={threedots}>
                     <img src="https://img.icons8.com/ios-glyphs/30/null/menu-2.png" style={{position: "relative"}}  />
-                    {props.dotselector[0] == props.name + "modifier" ? <Modifier   coredata={{ locatedir: props.globallocation[0], collectionname: props.name }} category={"folder"} location={props.globallocation[0]} /> : console.log(folderstate.modrenderer)}
+                    {props.dotselector[0] == props.name + "modifier" ? <Modifier coredata={{ locatedir: props.globallocation[0], collectionname: props.name }} changer={props.changer} name={props.name} category={"folder"} location={props.globallocation[0]} /> : console.log(folderstate.modrenderer)}
                 </div>
                 
                 

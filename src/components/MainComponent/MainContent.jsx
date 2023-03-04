@@ -231,7 +231,7 @@ function MainContent(props) {
         let boarddatas = BOARDDATA.map((item) => {
 
             return (
-                <Folder mainData={RAWX} name={item} selector={[selected, setselected]} globallocation={[location, setlocation]} category={"sidebarcomp"} dotselector={[dotselect, setdotselect]} BOARDDATA={[BOARDDATA, SETBOARDDATA]} />
+                <Folder mainData={RAWX} name={item} selector={[selected, setselected]} globallocation={[location, setlocation]} category={"sidebarcomp"} dotselector={[dotselect, setdotselect]} BOARDDATA={[BOARDDATA, SETBOARDDATA]} changer={props.changer} />
             )
         })
 
@@ -397,7 +397,7 @@ function MainContent(props) {
                 listOfKeys = Object.keys(PRESENTDATAX).map((item) => {
                     console.log(RAWX, item, location[1] != undefined ? RAWX[location[0]][location[1]]["_id"] : RAWX[location[0]][item]["_id"], location, PRESENTDATAX, PRESENTDATA)
                     return (
-                        typeof (PRESENTDATAX) === "object"  ? <Subfolder key={Math.random()} name={item}  selector={[selected, setselected]} globallocation={[location, setlocation]} category={"maincomp"} dotselector={[dotselect, setdotselect]} changer={props.changer} idholder={location[1] != undefined ? RAWX[location[0]][location[1]]["_id"] : RAWX[location[0]][item]["_id"]} valholder={cookeddata} rendererholder={renderer} /> : item != "" ? <Link key={Math.random()} name={PRESENTDATAX} dotselector={[dotselect, setdotselect]} globallocation={[location, setlocation]} idholder={location[1] != undefined ? RAWX[location[0]][location[1]]["_id"] : RAWX[location[0]][item]["_id"]} rendererholder={renderer} /> : ""
+                        typeof (PRESENTDATAX) === "object"  ? <Subfolder key={Math.random()} name={item}  selector={[selected, setselected]} globallocation={[location, setlocation]} category={"maincomp"} dotselector={[dotselect, setdotselect]} changer={props.changer} idholder={location[1] != undefined ? RAWX[location[0]][location[1]]["_id"] : RAWX[location[0]][item]["_id"]} valholder={cookeddata} presentdatax={PRESENTDATAX} rendererholder={renderer} /> : item != "" ? <Link key={Math.random()} name={PRESENTDATAX} dotselector={[dotselect, setdotselect]} globallocation={[location, setlocation]} idholder={location[1] != undefined ? RAWX[location[0]][location[1]]["_id"] : RAWX[location[0]][item]["_id"]} presentdatax={PRESENTDATAX} rendererholder={renderer} /> : ""
                     )
                 })                
             } else {
@@ -405,7 +405,7 @@ function MainContent(props) {
                 listOfKeys = [PRESENTDATAX].map((item) => {
                     console.log(item)
                     return (
-                        typeof (PRESENTDATAX) === "object"  ? <Subfolder key={Math.random()} name={item}  selector={[selected, setselected]} globallocation={[location, setlocation]} category={"maincomp"} dotselector={[dotselect, setdotselect]} changer={props.changer} idholder={location[1] != undefined ? RAWX[location[0]][location[1]]["_id"] : RAWX[location[0]][item]["_id"]} valholder={cookeddata} rendererholder={renderer} /> : item != "" ? <Link key={Math.random()} name={PRESENTDATAX} dotselector={[dotselect, setdotselect]} globallocation={[location, setlocation]} idholder={location[1] != undefined ? RAWX[location[0]][location[1]]["_id"] : RAWX[location[0]][item]["_id"]} rendererholder={renderer} /> : ""
+                        typeof (PRESENTDATAX) === "object"  ? <Subfolder key={Math.random()} name={item}  selector={[selected, setselected]} globallocation={[location, setlocation]} category={"maincomp"} dotselector={[dotselect, setdotselect]} changer={props.changer} idholder={location[1] != undefined ? RAWX[location[0]][location[1]]["_id"] : RAWX[location[0]][item]["_id"]} valholder={cookeddata} presentdatax={PRESENTDATAX} rendererholder={renderer} /> : item != "" ? <Link key={Math.random()} name={PRESENTDATAX} dotselector={[dotselect, setdotselect]} globallocation={[location, setlocation]} idholder={location[1] != undefined ? RAWX[location[0]][location[1]]["_id"] : RAWX[location[0]][item]["_id"]} presentdatax={PRESENTDATAX} rendererholder={renderer} /> : ""
                     )
                 })                
             }
@@ -576,12 +576,12 @@ function MainContent(props) {
                             
 
                             axios.post('http://localhost:8000/adddata', { category: "folder", collectionname: renamer })
-                                props.changer[1]((item) => {
-                                    console.log(renamer, item)
-                                    return (
-                                        renamer
-                                    )
-                                })
+                            props.changer[1]((item) => {
+                                console.log(renamer, item)
+                                return (
+                                    renamer
+                                )
+                            })
                             
 
                             
