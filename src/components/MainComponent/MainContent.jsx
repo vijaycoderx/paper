@@ -419,7 +419,7 @@ function MainContent(props) {
         })
 
         // render_maindata = 
-    }, [PRESENTDATAX, dotselect])
+    }, [PRESENTDATAX, dotselect, props.changer[0]])
     
         
     console.log(render_boarddata)

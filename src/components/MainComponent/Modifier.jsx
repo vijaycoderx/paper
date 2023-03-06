@@ -81,11 +81,50 @@ function Modifier(props) {
             console.log(props.renderer_holder, "rendereeeeeeeeeeeeer")
             let updateCook = {}
 
-            updateCook[renamevalue] = props.presentdatax[props.toUpdate]
-            delete props.presentdatax[props.toUpdate]
+            // updateCook[renamevalue] = props.presentdatax[props.toUpdate]
+            // let x = props.presentdatax
+            // delete x[props.toUpdate]
             
 
-            updateCook = {...updateCook, ...props.presentdatax}
+            // updateCook = { ...updateCook, ...x }
+            
+
+            for (let i = 0; i < Object.keys(props.presentdatax).length; i++){
+                console.log(Object.keys(props.presentdatax)[i])
+
+                if (props.location.length == 1) {
+                    if (props.toUpdate == Object.keys(props.presentdatax)[i]) {
+                        console.log(props.presentdatax[props.toUpdate]["data"])
+                        updateCook[renamevalue] = props.presentdatax[props.toUpdate]["data"]
+                        console.log(JSON.stringify(updateCook), props.presentdatax[props.toUpdate]["data"],"keyval",props.toUpdate,Object.keys(props.presentdatax)[i])
+                    } else {
+                        console.log(props.presentdatax[Object.keys(props.presentdatax)[i]]["data"])
+                        // updateCook[Object.keys(props.presentdatax)[i]] = props.presentdatax[Object.keys(props.presentdatax)[i]]["data"]
+                        console.log(updateCook)
+                    }
+                }else {
+                    if (props.toUpdate == Object.keys(props.presentdatax)[i]) {
+                        console.log(props.presentdatax[props.toUpdate])
+                        updateCook[renamevalue] = props.presentdatax[props.toUpdate]
+                        console.log(JSON.stringify(updateCook), props.presentdatax[props.toUpdate],"keyval",props.toUpdate,Object.keys(props.presentdatax)[i])
+                    } else {
+                        console.log(props.presentdatax[Object.keys(props.presentdatax)[i]])
+                        updateCook[Object.keys(props.presentdatax)[i]] = props.presentdatax[Object.keys(props.presentdatax)[i]]
+                        console.log(updateCook)
+                    }
+                }                    
+                
+
+                // if (props.toUpdate == Object.keys(props.presentdatax)[i]) {
+                //     console.log(props.presentdatax[props.toUpdate]["data"])
+                //     updateCook[renamevalue] = props.presentdatax[props.toUpdate]["data"]
+                //     console.log(JSON.stringify(updateCook), props.presentdatax[props.toUpdate]["data"],"keyval",props.toUpdate,Object.keys(props.presentdatax)[i])
+                // } else {
+                //     console.log(props.presentdatax[Object.keys(props.presentdatax)[i]]["data"])
+                //     // updateCook[Object.keys(props.presentdatax)[i]] = props.presentdatax[Object.keys(props.presentdatax)[i]]["data"]
+                //     console.log(updateCook)
+                // }
+            }
             
 
             console.log(props.presentdatax, updateCook, props.presentdatax)
