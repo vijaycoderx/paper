@@ -67,7 +67,7 @@ function Modifier(props) {
         if (props.category == "folder") {
             console.log("folder dataall", { ...props.coredata })
             axios.post('http://localhost:8000/update', {collectionname: props.name, renamevalue: renamevalue, category: props.category} )
-            console.log("server data", props.coredata)
+            console.log("server data", props.coredata, props.changer)
 
             props.changer[1]((item) => {
                 console.log(renamevalue)
@@ -80,13 +80,6 @@ function Modifier(props) {
         else if (props.category == "subfolder") {
             console.log(props.renderer_holder, "rendereeeeeeeeeeeeer")
             let updateCook = {}
-
-            // updateCook[renamevalue] = props.presentdatax[props.toUpdate]
-            // let x = props.presentdatax
-            // delete x[props.toUpdate]
-            
-
-            // updateCook = { ...updateCook, ...x }
             
 
             for (let i = 0; i < Object.keys(props.presentdatax).length; i++){
@@ -115,15 +108,6 @@ function Modifier(props) {
                 }                    
                 
 
-                // if (props.toUpdate == Object.keys(props.presentdatax)[i]) {
-                //     console.log(props.presentdatax[props.toUpdate]["data"])
-                //     updateCook[renamevalue] = props.presentdatax[props.toUpdate]["data"]
-                //     console.log(JSON.stringify(updateCook), props.presentdatax[props.toUpdate]["data"],"keyval",props.toUpdate,Object.keys(props.presentdatax)[i])
-                // } else {
-                //     console.log(props.presentdatax[Object.keys(props.presentdatax)[i]]["data"])
-                //     // updateCook[Object.keys(props.presentdatax)[i]] = props.presentdatax[Object.keys(props.presentdatax)[i]]["data"]
-                //     console.log(updateCook)
-                // }
             }
             
 
@@ -149,7 +133,7 @@ function Modifier(props) {
             // }
             
             axios.post('http://localhost:8000/update', { collectionname: props.location[0], renamevalue: renamevalue, location: props.location, idholder: props.id_holder, toUpdate: props.toUpdate, modified: updateCook, category: props.category })
-            console.log("iddd holddder", props.id_holder)
+            console.log("iddd holddder", props.id_holder, "updatecook", updateCook)
 
             console.log(props.changer[0])
             props.changer[1]((item) => {
@@ -161,7 +145,15 @@ function Modifier(props) {
             
         }
         else if (props.category == "link") {
-            axios.post('http://localhost:8000/update', {collectionname: props.location[0], renamevalue: renamevalue, location: props.location, modified: renamevalue, idholder: props.id_holder, category: props.category})
+            axios.post('http://localhost:8000/update', { collectionname: props.location[0], renamevalue: renamevalue, location: props.location, modified: renamevalue, idholder: props.id_holder, category: props.category })
+            console.log(props.changer)
+            console.log(props.changer[0])
+            props.changer[1]((item) => {
+                console.log(props.toUpdate, renamevalue, props.presentdatax)
+                return (
+                    props.toUpdate
+                )
+            })
         }
         
     }
@@ -170,25 +162,84 @@ function Modifier(props) {
         e.stopPropagation()
         if (props.category == "folder") {
             console.log("folder delete clicked", props.location)
-            axios.post('http://localhost:8000/delete', {location: props.location, collectionname: props.location[0], category: props.category})
+            axios.post('http://localhost:8000/delete', { location: props.location, collectionname: props.location[0], category: props.category })
+            
+            props.changer[1]((item) => {
+                console.log(props.toUpdate)
+                return (
+                    props.toUpdate
+                )
+            })
         }
         else if (props.category == "subfolder") {
             let updateCook = {}
-            for (let i = 0; i < props.renderer_holder.length; i++){
-                if (Object.keys(props.renderer_holder[i])[0] == props.toUpdate) {
-                    // updateCook[renamevalue] = props.val_holder[props.toUpdate]
-                    // console.log(updateCook, "seeeeeeeood",props.val_holder, renamevalue)
-                }
-                else {
-                    updateCook[Object.keys(props.renderer_holder[i])[0]] = props.renderer_holder[i][Object.keys(props.renderer_holder[i])[0]]
-                    console.log(updateCook, Object.keys(props.renderer_holder[i])[0], props.renderer_holder[i][Object.keys(props.renderer_holder[i])[0]])
+            console.log(JSON.stringify(props.presentdatax))
+
+            for (let i = 0; i < Object.keys(props.presentdatax).length; i++){
+                console.log(Object.keys(props.presentdatax)[i], "to", props.toUpdate)
+                if (props.location.length == 1) {
+                    console.log("loc1")
+                    if (props.toUpdate == Object.keys(props.presentdatax)[i]) {
+                        if (Object.keys(props.presentdatax).length == 1) {
+                            updateCook = ""
+                        }
+                        // console.log(Object.keys(props.presentdatax)[i], props.presentdatax)
+                        // updateCook[Object.keys(props.presentdatax)[i]] = props.presentdatax[Object.keys(props.presentdatax)[i]]["data"]
+                        console.log(updateCook)
+                    } else {
+                        updateCook[Object.keys(props.presentdatax)[i]] = props.presentdatax[Object.keys(props.presentdatax)[i]]["data"]
+                        console.log(updateCook)
+                    }
+                } else {
+                    console.log("loc2")
+                    if (props.toUpdate == Object.keys(props.presentdatax)[i]) {
+                        console.log(Object.keys(props.presentdatax)[i], props.presentdatax)
+                        if (Object.keys(props.presentdatax).length == 1) {
+                            updateCook = ""
+                        }
+                        
+                    
+                    } else {
+                        updateCook[Object.keys(props.presentdatax)[i]] = props.presentdatax[Object.keys(props.presentdatax)[i]]
+                        console.log(updateCook)
+                    }
+                    
                 }
             }
-            console.log(props.id_holder, "delete id")
-            axios.post('http://localhost:8000/delete', {location: props.location, idholder: props.id_holder, collectionname: props.location[0], modified: updateCook, category: props.category})
+
+            // console.log(props.renderer_holder, props.presentdatax)
+            // for (let i = 0; i < props.renderer_holder.length; i++){
+            //     if (Object.keys(props.renderer_holder[i])[0] == props.toUpdate) {
+            //         // updateCook[renamevalue] = props.val_holder[props.toUpdate]
+            //         // console.log(updateCook, "seeeeeeeood",props.val_holder, renamevalue)
+            //     }
+            //     else {
+            //         updateCook[Object.keys(props.renderer_holder[i])[0]] = props.renderer_holder[i][Object.keys(props.renderer_holder[i])[0]]
+            //         console.log(updateCook, Object.keys(props.renderer_holder[i])[0], props.renderer_holder[i][Object.keys(props.renderer_holder[i])[0]])
+            //     }
+            // }
+
+            
+            console.log(props.id_holder, "delete id", JSON.stringify(updateCook))
+            axios.post('http://localhost:8000/delete', { location: props.location, idholder: props.id_holder, collectionname: props.location[0], modified: updateCook, category: props.category })
+            
+            props.changer[1]((item) => {
+                console.log(props.toUpdate)
+                return (
+                    props.toUpdate
+                )
+            })
         }
         else if (props.category == "link") {
-            axios.post('http://localhost:8000/delete', {collectionname: props.location[0], location: props.location, idholder: props.id_holder, modified: "", category: props.category})
+            console.log(props.presentdatax)
+            axios.post('http://localhost:8000/update', { collectionname: props.location[0], location: props.location, idholder: props.id_holder, modified: "", category: props.category })
+            
+            props.changer[1]((item) => {
+                console.log(props.toUpdate)
+                return (
+                    props.toUpdate
+                )
+            })
         }
     }
     

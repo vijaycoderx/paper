@@ -18,11 +18,11 @@ function Folderfile(props) {
             
             // props.rendererholder = [{"fred": ""}]
         } else if (props.rendererholder.length === 1 && props.rendererholder[0] == "") {
-            console.log(props.rendererholder[0], "folder or file")
+            console.log(props.rendererholder[0], "folder or file", props.rendererholder)
             props.folderadder()
             
         } else if (props.rendererholder.length >= 1 && typeof(props.rendererholder[0]) == "object") {
-            console.log(props.rendererholder[0], "only folders")
+            console.log(props.rendererholder, "only folders")
             props.folderadder()
         }else {
             console.log(props.rendererholder, "not file")
