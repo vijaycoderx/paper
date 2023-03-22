@@ -231,7 +231,7 @@ function MainContent(props) {
         let boarddatas = BOARDDATA.map((item) => {
 
             return (
-                <Folder mainData={RAWX} name={item} selector={[selected, setselected]} globallocation={[location, setlocation]} category={"sidebarcomp"} dotselector={[dotselect, setdotselect]} BOARDDATA={[BOARDDATA, SETBOARDDATA]} changer={props.changer} />
+                <Folder mainData={RAWX} name={item} selector={[selected, setselected]} globallocation={[location, setlocation]} category={"sidebarcomp"} dotselector={[dotselect, setdotselect]} BOARDDATA={[BOARDDATA, SETBOARDDATA]} changer={props.changer} presentdatax={[PRESENTDATAX, SETPRESENTDATAX]} />
             )
         })
 
@@ -255,105 +255,105 @@ function MainContent(props) {
     let idfinal = ""
     let valfinal = ""
 
-    for (let i = 0; i < location.length; i++){
-        if (i === 0) {
-            if (typeof (cookeddata) == "object") { 
-                cookeddata = props.data[location[i]]
-                iterator = Object.values(cookeddata)
-                console.log("iiiiiiiiiiiiiiiiiiiiiiiiiii", JSON.stringify(cookeddata))
-                // let id_holder = {}
-                let somedata ={}
-                // let somedata = []
-                console.log(Object.keys(cookeddata), "000cooked", cookeddata)
-                for (let k = 0; k < Object.keys(cookeddata).length; k++){
-                    console.log(JSON.stringify(props.data[location[i]][k]["imp"]), "kkkcooked", typeof (props.data[location[i]][k]["imp"]))
-                    console.log("original id", props.data[location[i]][k]["_id"], somedata)
-                    // somedata.push(props.data[location[i]][k]["imp"])
-                    let year = Object.keys(props.data[location[i]][k]["imp"])[0]
-                    console.log(Object.keys(props.data[location[i]][k]["imp"])[0], "year")
+    // for (let i = 0; i < location.length; i++){
+    //     if (i === 0) {
+    //         if (typeof (cookeddata) == "object") { 
+    //             cookeddata = props.data[location[i]]
+    //             iterator = Object.values(cookeddata)
+    //             console.log("iiiiiiiiiiiiiiiiiiiiiiiiiii", JSON.stringify(cookeddata))
+    //             // let id_holder = {}
+    //             let somedata ={}
+    //             // let somedata = []
+    //             console.log(Object.keys(cookeddata), "000cooked", cookeddata)
+    //             for (let k = 0; k < Object.keys(cookeddata).length; k++){
+    //                 console.log(JSON.stringify(props.data[location[i]][k]["imp"]), "kkkcooked", typeof (props.data[location[i]][k]["imp"]))
+    //                 console.log("original id", props.data[location[i]][k]["_id"], somedata)
+    //                 // somedata.push(props.data[location[i]][k]["imp"])
+    //                 let year = Object.keys(props.data[location[i]][k]["imp"])[0]
+    //                 console.log(Object.keys(props.data[location[i]][k]["imp"])[0], "year")
                     
-                    somedata[Object.keys(props.data[location[i]][k]["imp"])[0]] = props.data[location[i]][k]["imp"][year]
-                    id_holder[Object.keys(props.data[location[i]][k]["imp"])[0]] = props.data[location[i]][k]["_id"]
+    //                 somedata[Object.keys(props.data[location[i]][k]["imp"])[0]] = props.data[location[i]][k]["imp"][year]
+    //                 id_holder[Object.keys(props.data[location[i]][k]["imp"])[0]] = props.data[location[i]][k]["_id"]
 
-                }
+    //             }
                 
-                cookeddata = somedata
-                console.log(Object.keys(somedata), "keys", Object.values(somedata), id_holder)
-                // cookeddata = [...somedata]
+    //             cookeddata = somedata
+    //             console.log(Object.keys(somedata), "keys", Object.values(somedata), id_holder)
+    //             // cookeddata = [...somedata]
 
                 
-                console.log(cookeddata, somedata)
-                console.log("loc val", location[i])
-            }
+    //             console.log(cookeddata, somedata)
+    //             console.log("loc val", location[i])
+    //         }
             
-        }
-        else {
-            console.log("id coook", JSON.stringify(cookeddata))
-            if (typeof (cookeddata) == "object") {
-                console.log("else part")
-                let cookeddatakeysx = Object.keys(cookeddata)
-                let cookeddatavaluesx = Object.values(cookeddata)
-                // console.log(cookeddatakeysx, "keys", cookeddatavaluesx, "values")
+    //     }
+    //     else {
+    //         console.log("id coook", JSON.stringify(cookeddata))
+    //         if (typeof (cookeddata) == "object") {
+    //             console.log("else part")
+    //             let cookeddatakeysx = Object.keys(cookeddata)
+    //             let cookeddatavaluesx = Object.values(cookeddata)
+    //             // console.log(cookeddatakeysx, "keys", cookeddatavaluesx, "values")
 
-                let finaldatax = cookeddatakeysx.map((item) => {
-                    let keyofdatax = item
-                    let valueofdatax = cookeddata[item]
-                    return (
-                        {[keyofdatax]: valueofdatax}
-                    )
-                })
-                console.log("coooooooooooooooooooked ddddaata", JSON.stringify(cookeddata), [cookeddata],"finalx", JSON.stringify(finaldatax))
-                cookeddata = finaldatax
+    //             let finaldatax = cookeddatakeysx.map((item) => {
+    //                 let keyofdatax = item
+    //                 let valueofdatax = cookeddata[item]
+    //                 return (
+    //                     {[keyofdatax]: valueofdatax}
+    //                 )
+    //             })
+    //             console.log("coooooooooooooooooooked ddddaata", JSON.stringify(cookeddata), [cookeddata],"finalx", JSON.stringify(finaldatax))
+    //             cookeddata = finaldatax
                 
 
-                for (let j = 0; j < cookeddata.length; j++){
-                    console.log(cookeddata[j], "each iteration", typeof(cookeddata[j]))
+    //             for (let j = 0; j < cookeddata.length; j++){
+    //                 console.log(cookeddata[j], "each iteration", typeof(cookeddata[j]))
                     
-                    let somedatax = {}
-                    if ([...Object.keys(cookeddata[j])] == location[i]) {
+    //                 let somedatax = {}
+    //                 if ([...Object.keys(cookeddata[j])] == location[i]) {
                         
-                        cookeddata = cookeddata[j][location[i]]
-                        console.log("mathed", JSON.stringify(cookeddata), JSON.stringify(id_holder[location[i]]))
-                        console.log(Object.keys(cookeddata), "keys", Object.values(cookeddata))
-                        idfinal = location[1] == undefined ? id_holder[location[i]] : id_holder[location[1]]
-                        valfinal = cookeddata
+    //                     cookeddata = cookeddata[j][location[i]]
+    //                     console.log("mathed", JSON.stringify(cookeddata), JSON.stringify(id_holder[location[i]]))
+    //                     console.log(Object.keys(cookeddata), "keys", Object.values(cookeddata))
+    //                     idfinal = location[1] == undefined ? id_holder[location[i]] : id_holder[location[1]]
+    //                     valfinal = cookeddata
                         
-                    }
-                    else {
-                        console.log("not matched", cookeddata, JSON.stringify(cookeddata), location[i], cookeddata[j])
-                    }
-                }
-            }
-        }
-        console.log(cookeddata, "cooooook", typeof(cookeddata) === 'object', typeof(cookeddata))
-        let cookeddatakeys = Object.keys(cookeddata)
-        let cookeddatavalues = Object.values(cookeddata)
-        let finaldata = []
+    //                 }
+    //                 else {
+    //                     console.log("not matched", cookeddata, JSON.stringify(cookeddata), location[i], cookeddata[j])
+    //                 }
+    //             }
+    //         }
+    //     }
+    //     console.log(cookeddata, "cooooook", typeof(cookeddata) === 'object', typeof(cookeddata))
+    //     let cookeddatakeys = Object.keys(cookeddata)
+    //     let cookeddatavalues = Object.values(cookeddata)
+    //     let finaldata = []
 
-        if (typeof (cookeddata) != "object") {
-            console.log([cookeddata], "exceo")
-            finaldata = [cookeddata]
+    //     if (typeof (cookeddata) != "object") {
+    //         console.log([cookeddata], "exceo")
+    //         finaldata = [cookeddata]
             
-        }
-        else {
-            finaldata = cookeddatakeys.map((item) => {
-                let keyofdata = item
-                let valueofdata = cookeddata[item]
-                return (
-                    {[keyofdata]: valueofdata}
-                )
-            })
-        }
+    //     }
+    //     else {
+    //         finaldata = cookeddatakeys.map((item) => {
+    //             let keyofdata = item
+    //             let valueofdata = cookeddata[item]
+    //             return (
+    //                 {[keyofdata]: valueofdata}
+    //             )
+    //         })
+    //     }
 
         
 
         
 
-        console.log(JSON.stringify(cookeddata), "looped data", iterator, Object.keys(cookeddata), JSON.stringify(finaldata))
-        renderer = finaldata
-        console.log(cookeddata, "raw data")
-        // cookeddata = finaldata
-    }
+    //     console.log(JSON.stringify(cookeddata), "looped data", iterator, Object.keys(cookeddata), JSON.stringify(finaldata))
+    //     renderer = finaldata
+    //     console.log(cookeddata, "raw data")
+    //     // cookeddata = finaldata
+    // }
 
     const requireddata = props.data[[...location]] ? props.data[[...location]] : []
 
@@ -390,22 +390,25 @@ function MainContent(props) {
 
     console.log(PRESENTDATAX)
     useEffect(() => {
-        console.log(PRESENTDATAX, Object.keys(PRESENTDATAX))
+        // console.log(PRESENTDATAX, Object.keys(PRESENTDATAX))
+        //change below and modify folder presentdatax
+        typeof(PRESENTDATAX) == "undefined" ? SETPRESENTDATAX({}) : console.log("valid present data")
         setrender_maindata((item) => {
             let listOfKeys = []
             if (typeof (PRESENTDATAX) == "object") {
                 listOfKeys = Object.keys(PRESENTDATAX).map((item) => {
                     console.log(RAWX, item, location[1] != undefined ? RAWX[location[0]][location[1]]["_id"] : RAWX[location[0]][item]["_id"], location, PRESENTDATAX, PRESENTDATA)
                     return (
-                        typeof (PRESENTDATAX) === "object"  ? <Subfolder key={Math.random()} name={item}  selector={[selected, setselected]} globallocation={[location, setlocation]} category={"maincomp"} dotselector={[dotselect, setdotselect]} changer={props.changer} idholder={location[1] != undefined ? RAWX[location[0]][location[1]]["_id"] : RAWX[location[0]][item]["_id"]} valholder={cookeddata} presentdatax={PRESENTDATAX} rendererholder={renderer} /> : item != "" ? <Link key={Math.random()} name={PRESENTDATAX} dotselector={[dotselect, setdotselect]}changer={props.changer} globallocation={[location, setlocation]} idholder={location[1] != undefined ? RAWX[location[0]][location[1]]["_id"] : RAWX[location[0]][item]["_id"]} presentdatax={PRESENTDATAX} rendererholder={renderer} /> : ""
+                        typeof (PRESENTDATAX) === "object"  ? <Subfolder key={Math.random()} name={item}  selector={[selected, setselected]} globallocation={[location, setlocation]} category={"maincomp"} dotselector={[dotselect, setdotselect]} changer={props.changer} idholder={location[1] != undefined ? RAWX[location[0]][location[1]]["_id"] : RAWX[location[0]][item]["_id"]}  presentdatax={PRESENTDATAX}  /> : item != "" ? <Link key={Math.random()} name={PRESENTDATAX} dotselector={[dotselect, setdotselect]}changer={props.changer} globallocation={[location, setlocation]} idholder={location[1] != undefined ? RAWX[location[0]][location[1]]["_id"] : RAWX[location[0]][item]["_id"]} presentdatax={PRESENTDATAX}  /> : ""
                     )
                 })                
             } else {
                 console.log([PRESENTDATAX])
                 listOfKeys = [PRESENTDATAX].map((item) => {
                     console.log(item)
+                    
                     return (
-                        typeof (PRESENTDATAX) === "object"  ? <Subfolder key={Math.random()} name={item}  selector={[selected, setselected]} globallocation={[location, setlocation]} category={"maincomp"} dotselector={[dotselect, setdotselect]} changer={props.changer} idholder={location[1] != undefined ? RAWX[location[0]][location[1]]["_id"] : RAWX[location[0]][item]["_id"]} valholder={cookeddata} presentdatax={PRESENTDATAX} rendererholder={renderer} /> : item != "" ? <Link key={Math.random()} name={PRESENTDATAX} dotselector={[dotselect, setdotselect]} changer={props.changer} globallocation={[location, setlocation]} idholder={location[1] != undefined ? RAWX[location[0]][location[1]]["_id"] : RAWX[location[0]][item]["_id"]} presentdatax={PRESENTDATAX} rendererholder={renderer} /> : ""
+                        typeof (PRESENTDATAX) === "object"  ? <Subfolder key={Math.random()} name={item}  selector={[selected, setselected]} globallocation={[location, setlocation]} category={"maincomp"} dotselector={[dotselect, setdotselect]} changer={props.changer} idholder={location[1] != undefined ? RAWX[location[0]][location[1]]["_id"] : RAWX[location[0]][item]["_id"]}  presentdatax={PRESENTDATAX}  /> : item != "" ? <Link key={Math.random()} name={PRESENTDATAX} dotselector={[dotselect, setdotselect]} changer={props.changer} globallocation={[location, setlocation]} idholder={location[1] != undefined ? RAWX[location[0]][location[1]]["_id"] : RAWX[location[0]][item]["_id"]} presentdatax={PRESENTDATAX}  /> : ""
                     )
                 })                
             }
@@ -423,12 +426,12 @@ function MainContent(props) {
     
         
     console.log(render_boarddata)
-    console.log(renderer, "finaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaal")
-    console.log(JSON.stringify(renderer))
+    // console.log(renderer, "finaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaal")
+    // console.log(JSON.stringify(renderer))
 
-    useEffect(() => {
-        setdatalistx({...datalistx, [location[location.length-1]] : renderer})
-    },[location])
+    // useEffect(() => {
+    //     setdatalistx({...datalistx, [location[location.length-1]] : renderer})
+    // },[location])
     
 
 
@@ -446,23 +449,22 @@ function MainContent(props) {
 
 
     function folderAdder() {
-        
 
         let createfile = prompt()
-
         let updatedata = {}
         
-        for (let i = 0; i < renderer.length; i++){
+        for (let i = 0; i < Object.keys(PRESENTDATAX).length; i++){
             // if (Object.keys(renderer)[i][0] == location[location.length - 1]) {
             //     updatedata[]
             // }
-            updatedata[Object.keys(renderer[i])[0]] = renderer[i][Object.keys(renderer[i])[0]] 
+            // updatedata[Object.keys(renderer[i])[0]] = renderer[i][Object.keys(renderer[i])[0]] 
+            updatedata[Object.keys(PRESENTDATAX)[i]] = PRESENTDATAX[Object.keys(PRESENTDATAX)[i]]
         }
         updatedata[createfile] = ""
 
         if (location.length == 1) {
             updatedata = { [createfile]: "" }
-            axios.post('http://localhost:8000/adddata', { location: location, collectionname: location[0], idholder: idfinal, modified: updatedata })
+            axios.post('http://localhost:8000/adddata', { location: location, collectionname: location[0], idholder: location[1] != undefined ? RAWX[location[0]][location[1]]["_id"] : "", modified: updatedata })
             console.log(updatedata)
             props.changer[1]((item) => {
                 return (
@@ -471,7 +473,7 @@ function MainContent(props) {
             })
         }
         else {
-            axios.post('http://localhost:8000/adddata', { location: location, valholderx: valfinal, collectionname: location[0], addvalue: createfile, idholder: idfinal, modified: updatedata })
+            axios.post('http://localhost:8000/adddata', { location: location, valholderx: valfinal, collectionname: location[0], addvalue: createfile, idholder: location[1] != undefined ? RAWX[location[0]][location[1]]["_id"] : RAWX[location[0]][location[1]]["_id"], modified: updatedata })
             props.changer[1]((item) => {
                 return (
                     createfile
@@ -484,12 +486,12 @@ function MainContent(props) {
         let createfile = prompt()
 
         let updatedata = {}
-        console.log(renderer)
+        // console.log(renderer)
         if (location.length == 1) {
             
         }
         else {
-            axios.post('http://localhost:8000/update', { location: location, valholderx: valfinal, collectionname: location[0], addvalue: createfile, idholder: idfinal, modified: createfile })
+            axios.post('http://localhost:8000/update', { location: location, valholderx: valfinal, collectionname: location[0], addvalue: createfile, idholder: location[1] != undefined ? RAWX[location[0]][location[1]]["_id"] : RAWX[location[0]][location[1]]["_id"], modified: createfile })
             props.changer[1]((item) => {
                 return (
                     createfile
@@ -610,7 +612,7 @@ function MainContent(props) {
                             <img src="https://img.icons8.com/parakeet/48/null/add.png" alt="" onClick={() => filefolder.filefolderselected ? setfilefolder({filefolderselected : false}) : setfilefolder({filefolderselected : true})} />
 
                             <div className="folderfileholder" style={{}}>
-                                {filefolder.filefolderselected ? <Folderfile folderadder={folderAdder} fileadder={fileAdder} rendererholder={renderer} changer={props.changer} location={location} /> : console.log("filefolder")}
+                                {filefolder.filefolderselected ? <Folderfile folderadder={folderAdder} fileadder={fileAdder}  presentdatax={PRESENTDATAX} changer={props.changer} location={location} /> : console.log("filefolder")}
                             </div>
                             
                         </div>

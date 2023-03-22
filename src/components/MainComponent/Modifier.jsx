@@ -139,7 +139,7 @@ function Modifier(props) {
             props.changer[1]((item) => {
                 console.log(props.toUpdate)
                 return (
-                    props.toUpdate
+                    props.toUpdate + "change"
                 )
             })
             
@@ -151,7 +151,7 @@ function Modifier(props) {
             props.changer[1]((item) => {
                 console.log(props.toUpdate, renamevalue, props.presentdatax)
                 return (
-                    props.toUpdate
+                    props.toUpdate + "change"
                 )
             })
         }
@@ -161,13 +161,14 @@ function Modifier(props) {
     function deleteData(e) {
         e.stopPropagation()
         if (props.category == "folder") {
-            console.log("folder delete clicked", props.location)
+            console.log("folder delete clicked", props.location, props.presentdatax)
+            // props.presentdatax[1]({})
             axios.post('http://localhost:8000/delete', { location: props.location, collectionname: props.location[0], category: props.category })
             
             props.changer[1]((item) => {
                 console.log(props.toUpdate)
                 return (
-                    props.toUpdate
+                    props.location[0] + "change"
                 )
             })
         }
@@ -226,7 +227,7 @@ function Modifier(props) {
             props.changer[1]((item) => {
                 console.log(props.toUpdate)
                 return (
-                    props.toUpdate
+                    props.toUpdate + "change"
                 )
             })
         }
@@ -237,7 +238,7 @@ function Modifier(props) {
             props.changer[1]((item) => {
                 console.log(props.toUpdate)
                 return (
-                    props.toUpdate
+                    props.toUpdate + "change"
                 )
             })
         }

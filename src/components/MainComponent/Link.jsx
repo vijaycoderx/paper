@@ -22,7 +22,7 @@ function Link(props) {
             
             <div className="threedot" style={{ backgroundColor: "white", position:"relative" }}>
                     <img src="https://img.icons8.com/ios-glyphs/30/null/menu-2.png" style={{ backgroundColor: "white" }} onClick={subthreedots} />
-                    {props.dotselector[0] === props.name + "modifier" ? <Modifier key={Math.random()} category={"link"} changer={props.changer} location={props.globallocation[0]} id_holder={props.idholder} val_holder={props.valholder} toUpdate={props.name} renderer_holder={props.rendererholder} /> : console.log("submodifier")}
+                    {props.dotselector[0] === props.name + "modifier" ? <Modifier key={Math.random()} category={"link"} changer={props.changer} location={props.globallocation[0]} id_holder={props.idholder} val_holder={props.valholder} toUpdate={props.name}  /> : console.log("submodifier")}
             </div>
         </div>
     )
