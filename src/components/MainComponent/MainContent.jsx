@@ -389,10 +389,11 @@ function MainContent(props) {
     // }) 
 
     console.log(PRESENTDATAX)
+    typeof(PRESENTDATAX) == "undefined" ? SETPRESENTDATAX({}) : console.log("valid present data")
     useEffect(() => {
         // console.log(PRESENTDATAX, Object.keys(PRESENTDATAX))
         //change below and modify folder presentdatax
-        typeof(PRESENTDATAX) == "undefined" ? SETPRESENTDATAX({}) : console.log("valid present data")
+        
         setrender_maindata((item) => {
             let listOfKeys = []
             if (typeof (PRESENTDATAX) == "object") {
@@ -408,7 +409,7 @@ function MainContent(props) {
                     console.log(item)
                     
                     return (
-                        typeof (PRESENTDATAX) === "object"  ? <Subfolder key={Math.random()} name={item}  selector={[selected, setselected]} globallocation={[location, setlocation]} category={"maincomp"} dotselector={[dotselect, setdotselect]} changer={props.changer} idholder={location[1] != undefined ? RAWX[location[0]][location[1]]["_id"] : RAWX[location[0]][item]["_id"]}  presentdatax={PRESENTDATAX}  /> : item != "" ? <Link key={Math.random()} name={PRESENTDATAX} dotselector={[dotselect, setdotselect]} changer={props.changer} globallocation={[location, setlocation]} idholder={location[1] != undefined ? RAWX[location[0]][location[1]]["_id"] : RAWX[location[0]][item]["_id"]} presentdatax={PRESENTDATAX}  /> : ""
+                        typeof (PRESENTDATAX) == "object"  ? <Subfolder key={Math.random()} name={item}  selector={[selected, setselected]} globallocation={[location, setlocation]} category={"maincomp"} dotselector={[dotselect, setdotselect]} changer={props.changer} idholder={location[1] != undefined ? RAWX[location[0]][location[1]]["_id"] : RAWX[location[0]][item]["_id"]}  presentdatax={PRESENTDATAX}  /> : item != "" ? <Link key={Math.random()} name={PRESENTDATAX} dotselector={[dotselect, setdotselect]} changer={props.changer} globallocation={[location, setlocation]} idholder={location[1] != undefined ? RAWX[location[0]][location[1]]["_id"] : RAWX[location[0]][item]["_id"]} presentdatax={PRESENTDATAX}  /> : ""
                     )
                 })                
             }
@@ -520,7 +521,18 @@ function MainContent(props) {
                     return (
                         <div style={{ display: "inline" }}><button style={{ display: "inline" }} onClick={() => {
                             console.log("heeeeey daaaaaaaaaaaaaaaaaata", props.data[itemx], renderer, "in", )
-                            console.log("renderer", renderer, "datalistx",datalistx, "pitem", datalistx[itemx], "item", itemx)
+                            console.log("renderer", renderer, "list", location, location.indexOf('jetin'))
+                            let loclocation = []
+                            for (let i = 0; i <= location.indexOf(itemx); i++){
+                                loclocation.push(location[i])
+                            }
+
+                            setlocation((data) => {
+
+                                return (
+                                    loclocation
+                                )
+                            })
 
                             // if (location.length == 1) {
                                 
