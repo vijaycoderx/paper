@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 
 function Selector(props) {
-    console.log("present",props.presentdata[0],typeof (props.presentdata[0]), "counter", props.counter[0])
-    let optionsholder = []
+    // let incre = props.inc[0]
+    console.log("present",props.presentdata[0],typeof (props.presentdata[0]), "counter", props.counter[0], "name", props.name)
+    let optionsholder = [<option>select</option>]
 
     // for (let i = 0; i < Object.keys(props.presentdata[0]).length; i++){
     //     optionsholder = [...optionsholder, <option>{Object.keys(props.presentdata[0])[i]}</option>]
@@ -13,38 +14,48 @@ function Selector(props) {
         for (let i = 0; i < Object.keys(props.presentdata[0]).length; i++){
             optionsholder = [...optionsholder, <option>{Object.keys(props.presentdata[0])[i]}</option>]
         }   
-    } else {
-        optionsholder=<option>{props.presentdata[0]}</option>
+    }
+    else if (typeof (props.presentdata[0]) == "string") {
+        if (props.presentdata[0] == "") {
+            optionsholder=<option>no file</option>
+        } else {
+            optionsholder=<option>{props.presentdata[0]}</option>
+        }
+        
     }
 
-    let x = function (event){
-        console.log("return section",event.target.value, props.presentdata[0])
+    // optionsholder.unshift(<option>select</option>)
+    let x = function (event) {
+        if (event.target.value == "select") {
+            props.options[1]((item) => [...item.splice(0, props.name)])
+        } else {
+            console.log("return section",event.target.value, props.presentdata[0])
 
 
-        typeof (props.presentdata[0]) == "object" ? props.presentdata[1](props.presentdata[0][event.target.value]) : props.presentdata[1](props.presentdata[0])
-
-        console.log("counter value", props.counter[0])
-
-        props.counter[1]((item) => item + 1)
-
-        console.log("after return section", event.target.value, props.presentdata[0])
         
-        // props.options[0].map((item) => {
-        //     console.log("x",item.value, "x", item)
-        // })
+
+            // console.log("counter value", props.counter[0], "propsinc",props.inc[0])
+    
+            props.options[1]((item) => [...item.splice(0, props.name)])
+    
+            typeof (props.presentdata[0]) == "object" ? props.presentdata[1](props.presentdata[0][event.target.value]) : props.presentdata[1](props.presentdata[0])
+    
+            props.counter[1]((item) => item + 1)
+    
+            console.log("after return section", event.target.value, props.presentdata[0])
+                       
+        }
+        
     }
 
     return (
-        // (event) => {
-            // console.log("return section",event.target.value, props.presentdata[0])
+        
+            <select name="" id="" onChange={(event) => x(event)}>{optionsholder}</select>
 
-
-            // typeof(props.presentdata[0]) == "object" ? props.presentdata[1](props.presentdata[0][event.target.value]) : props.presentdata[1](props.presentdata[0])
-            // props.counter[1](props.counter[0] + 1)
-            // console.log("after return section",event.target.value, props.presentdata[0])
-
-        // }
-        <select name="" id="" onChange={(event) => x(event)}>{optionsholder}</select>
+            
+            
+        
+        
     )
 }
 

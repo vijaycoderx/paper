@@ -10,7 +10,8 @@ function DownloadPaper() {
     const [filtereddata, setfiltereddata] = useState({})
     const [presentdata, setpresentdata] = useState({})
     const [counter, setcounter] = useState()
-
+    // const [inc, setinc] = useState(1)
+    const [comp, setcomp] = useState([])
     // const [optionlocation, setoptionlocation] = useState([])
 
     
@@ -47,26 +48,13 @@ function DownloadPaper() {
     
     useEffect(() => {
 
-        if (Object.keys(data) != 0) {
-            // let optionsdata = []
-            // console.log(presentdata, this)
-            // for (let i = 0; i < Object.keys(presentdata).length; i++){
-            //     optionsdata.push(<option>{Object.keys(presentdata)[i]}</option>)
-            // }
-    
-            // setoptions(<select onChange={setpresentdata(filtereddata["guns"])}>{optionsdata}</select>)
-            
-            // for (let i = 0; i < counter; i++){
-                
-            // }
+        if (Object.keys(data) != 0) { 
             setoptions((prev) => {
-                // console.log(counter)
+                // setinc((item) => item + 1)
                 return (
-                    [...prev, <Selector counter={[counter, setcounter]} presentdata={[presentdata,setpresentdata]} options={[options, setoptions]} key={"key"+Math.random() + Math.random()} />]
-                )
-                
-            })
-            
+                    [...prev, <Selector counter={[counter, setcounter]} presentdata={[presentdata, setpresentdata]} options={[options, setoptions]} key={"key" + Math.random() + Math.random()} name={options.length + 1} comp={[comp, setcomp]}  />]
+                )   
+            })        
         }
         
         
@@ -79,6 +67,7 @@ function DownloadPaper() {
         <>
             <div className="container">
                 {options}
+                {presentdata != "" && typeof(presentdata) == "string" ? <div className="downloadbtn" style={{ display: "inline" }} ><a href={presentdata}>Download</a></div> : ""}
             </div>
         </>
     )
