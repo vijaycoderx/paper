@@ -25,7 +25,7 @@ function Selector(props) {
     }
 
     // optionsholder.unshift(<option>select</option>)
-    let x = function (event) {
+    let changed = function (event) {
         if (event.target.value == "select") {
             props.options[1]((item) => [...item.splice(0, props.name)])
         } else {
@@ -49,13 +49,10 @@ function Selector(props) {
     }
 
     return (
-        
-            <select name="" id="" onChange={(event) => x(event)}>{optionsholder}</select>
-
-            
-            
-        
-        
+        <>
+            <select name="" id="" onChange={(event) => changed(event)} style={{width: "40vw", height: "50px",border:"none", borderRadius:"10px", fontSize:"1.25em", fontFamily:"sans-serif", fontWeight:"bold"}}>{optionsholder}</select>
+            <br></br>
+        </>    
     )
 }
 

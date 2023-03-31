@@ -66,8 +66,11 @@ function DownloadPaper() {
     return (
         <>
             <div className="container">
-                {options}
-                {presentdata != "" && typeof(presentdata) == "string" ? <div className="downloadbtn" style={{ display: "inline" }} ><a href={presentdata}>Download</a></div> : ""}
+                <div className="downloadholder">
+                    {options}
+                    {presentdata != "" && typeof(presentdata) == "string" ? <div className="downloadbtn" style={{ display: "inline", width:"30vw", height:"50px", backgroundColor:"white", display:"flex", justifyContent:"center", alignItems:"center", border:"none", borderRadius:"10px" }} ><a href={presentdata} style={{textDecoration:"none", width:"95%", height:"100%", display:"flex", justifyContent:"center", alignItems:"center", fontSize:"1.5em"}} target="_blank">Download</a></div> : ""}
+                </div>
+                
             </div>
         </>
     )

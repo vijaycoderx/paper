@@ -60,7 +60,7 @@ function Folderfile(props) {
     return (
         <div className="folderfilecreator" style={{backgroundColor: "violet", border: "none", borderRadius: "2px", display: "flex", flexDirection: "column", width: "100px", padding: "10px", boxSizing: "border-box", position: "absolute", top: "0px", right: "50px"}}>
             <button onClick={folderCreate}>Folder</button>
-            <button onClick={fileCreate}>File</button>
+            <button onClick={fileCreate}>Link</button>
         </div>
     )
 }

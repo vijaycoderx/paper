@@ -8,8 +8,6 @@ import Navbar from './components/NavbarComponent/Navbar';
 import MainContent from './components/MainComponent/MainContent';
 import FooterContent from './components/FooterComponent/FooterContent'
 import Modifier from './components/MainComponent/Modifier';
-import Download from './components/MainComponent/Download';
-import DownloadPaper from './components/DownloadPaper/DownloadPaper';
 
 
 function App() {
@@ -70,8 +68,6 @@ function App() {
         
       <footer className='footerlayout'>
         <FooterContent />
-        <Download />
-        <DownloadPaper />
       </footer>
 
       {/* <Modifier /> */}

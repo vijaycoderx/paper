@@ -6,7 +6,6 @@ import Link from "./Link";
 import axios from "axios";
 import Folderfile from "./Folderfile";
 import { render } from "@testing-library/react";
-import Download from "./Download";
 
 function MainContent(props) {
     console.log("check rendering")
@@ -639,7 +638,7 @@ function MainContent(props) {
                     
                 </div>
             </div>
-            <Download RAW={[PRESENTDATA, SETPRESENTDATAX]} />
+            
             
         </div>
     )
