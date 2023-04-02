@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import Modifier from "./Modifier";
+import subfolderpng from './subfolder.png';
 
 
 function Subfolder(props) {
@@ -107,20 +108,21 @@ function Subfolder(props) {
     }
     console.log("seeeeeeeeeeeeeeeeeeeeex", props.idholder)
     return (
-        <div style={{ backgroundColor: "white", height: "100px", width: "100px", display: "flex", alignItems: "center", margin: "2px 0px", flexDirection: "column", boxSizing: "border-box", border: "2.5px solid violet", borderRadius: "5px", justifyContent: "center"}} onClick={subclick}>
-            <div style={{display: "flex", alignItems: "center", justifyContent: "space-between",backgroundColor: "white", alignSelf: "center", width: "100%"}}>
-                <img src="https://img.icons8.com/color/60/null/folder-invoices--v1.png" />
+        <div style={{ backgroundColor: "#99ff99", height: "100px", width: "100px", display: "flex", alignItems: "center", margin: "2px 0px", flexDirection: "column", boxSizing: "border-box", border: "none", borderRadius: "10px", justifyContent: "center", margin:"10px 0px"}} onClick={subclick}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", backgroundColor: "inherit", alignSelf: "center", width: "100%" }}>
+                {/* "https://img.icons8.com/color/60/null/folder-invoices--v1.png" */}
+                <img src={subfolderpng} />
 
                 {/* Note: img is not properly aligned in div */}
-                <div className="threedot" style={{ backgroundColor: "white", position:"relative" }}>
-                    <img src="https://img.icons8.com/ios-glyphs/30/null/menu-2.png" style={{ backgroundColor: "white" }} onClick={subthreedots} />
+                <div className="threedot" style={{ backgroundColor: "inherit", position:"relative" }}>
+                    <img src="https://img.icons8.com/ios-glyphs/30/null/menu-2.png" style={{ backgroundColor: "inherit" }} onClick={subthreedots} />
                     {props.dotselector[0] == props.name ? <Modifier key={Math.random()} category={"subfolder"} location={props.globallocation[0]} changer={props.changer} id_holder={props.idholder} val_holder={props.valholder} toUpdate={props.name} presentdatax={props.presentdatax}  /> : console.log("submodifier", props.name, props.dotselector[0])}
                 </div>
                 
             </div>
 
             <div >
-                <p style={{ fontFamily: "sans-serif", backgroundColor: "white" }} >{props.name}</p>
+                <p style={{ fontFamily: "sans-serif", backgroundColor: "inherit" }} >{props.name}</p>
             </div>
             
         </div>

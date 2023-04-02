@@ -13,9 +13,36 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    /* display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 100%; */
+
     /* background-color: red; */
 
 }
+.navigationheader .navbar div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0px 10px;
+    /* background-color: white; */
+    
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 25px;
+}
+
+.navigationheader .navbar div img{
+    height: 32px;
+    width: 32px;
+}
+.navigationheader .navbar div p{
+    font-size: 1.25rem;
+    font-weight: bolder;
+}
+
 .navbar{
     height: 100%;
     width: 100%;

@@ -508,17 +508,11 @@ function MainContent(props) {
         <div className="maincontainer">
 
             <div className="dirbar">
-                <p>Directory:</p>
-                <p>{location.map((itemx) => {
-                    // let dataz = props.data[location[0]].map((item) => {
-                    //     return (
-                    //         item["imp"]
-                    //     )
-                    // })
-
-                    
+                <p style={{backgroundColor:"black", color:"white", border:"none", borderRadius:"5px", fontSize:"1.5em", display:"flex", justifyContent:"center", alignItems:"center"}}>Directory:</p>
+                <p style={{height:"100%", display:"flex", justifyContent:"center", alignItems:"center", backgroundColor:"inherit"}}>{location.map((itemx) => {
+                         
                     return (
-                        <div style={{ display: "inline" }}><button style={{ display: "inline" }} onClick={() => {
+                        <div style={{ display: "inline" }}><button style={{ display: "inline", height:"inherit", fontSize:"1.25em", backgroundColor:"#FFC0C7", padding:"0px 5px", border:"none", borderRadius:"10px"}} onClick={() => {
                             console.log("heeeeey daaaaaaaaaaaaaaaaaata", props.data[itemx], renderer, "in", )
                             console.log("renderer", renderer, "list", location, location.indexOf('jetin'))
                             let loclocation = []
@@ -533,44 +527,8 @@ function MainContent(props) {
                                 )
                             })
 
-                            // if (location.length == 1) {
-                                
-                            //     console.log(dataz)
-                            // }
-                            // else {
-                            //     for (let i = 0; i < dataz.length; i++){
-                            //         if (dataz[i][item] != undefined) {
-                            //             console.log(dataz[i][item])
-                            //         }
-                            //         else {
-                            //             console.log("undefined")
-                            //         }
-                            //     }
-                            //     console.log()
-                                
-                            // }
-
-
-                            // console.log(datalist[item], datalistx,"zaa", renderer, "item", JSON.stringify(datalistx[item]), typeof(datalistx[item]), item)
-
-                            // render_maindata = datalistx[itemx].map((item) => {
-                            //     // console.log(Object.keys(item.imp), "itteemmmmm")
-                            //     console.log(item, "iteeeeeeeeeeeeeeeeeeeeeeeem", datalistx[itemx], itemx)
-                                
-                        
-                            //     return (
-                        
-                            //         typeof (item) === "object"  ? <Subfolder key={Math.random()} name={typeof (item) === "object" ? Object.keys(item) : item} datalistxx={[datalistx, setdatalistx]} selector={[selected, setselected]} globallocation={[location, setlocation]} category={"maincomp"} dotselector={[propselect, setpropselect]} raw={rawdatas} idholder={idfinal} valholder={valfinal} rendererholder={renderer} /> : item != "" ? <Link key={Math.random()} name={item } /> : ""
-                                     
-                            //     )
-                            // }) 
-                            
-                            // renderer = datalistx[itemx]
-                            // console.log(render_maindata, "renderer_maindata")
-
-
-                            
-                        }} >{itemx}</button><p style={{display: "inline"}}>/</p></div>
+                                        
+                        }} >{itemx}</button><p style={{display: "inline", fontSize:"1.25em"}}> / </p></div>
                     )
                 })}</p>
             </div>
@@ -598,11 +556,6 @@ function MainContent(props) {
                                 )
                             })
                             
-
-                            
-                            
-                            
-                            // setboarddata((localboarddataitem) => [...localboarddataitem, renamer])
                         } }>
                             <img src="https://img.icons8.com/parakeet/48/null/add.png" alt="" />
                         </div>
@@ -632,7 +585,10 @@ function MainContent(props) {
                     <hr />
                     {/* <Subfolder key={Math.random()} maindata={props.data} /> */}
                     <div className="mainsectiondata">
-                        {render_maindata}
+                        <div className="mainsectiondatachild">
+                            {render_maindata}
+                        </div>
+                        
                     </div>
                     
                     
