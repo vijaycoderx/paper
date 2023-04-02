@@ -1,9 +1,10 @@
 import React from "react";
+import './FooterContent.css'
 
 function FooterContent() {
     
     return (
-        <div></div>
+        <div className="footercontentx"></div>
     )
 };
 

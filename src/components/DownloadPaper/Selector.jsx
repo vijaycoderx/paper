@@ -50,7 +50,7 @@ function Selector(props) {
 
     return (
         <>
-            <select name="" id="" onChange={(event) => changed(event)} style={{width: "40vw", height: "50px",border:"none", borderRadius:"10px", fontSize:"1.25em", fontFamily:"sans-serif", fontWeight:"bold"}}>{optionsholder}</select>
+            <select name="" id="" onChange={(event) => changed(event)} style={{width: "40vw", height: "50px",border:"none", borderRadius:"10px", outline: "none", fontSize:"1.25em", fontFamily:"sans-serif", fontWeight:"bold"}}>{optionsholder}</select>
             <br></br>
         </>    
     )

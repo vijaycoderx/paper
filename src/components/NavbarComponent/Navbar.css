@@ -13,14 +13,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* background-color: wheat; */
+    /* background-color: red; */
 
 }
 .navbar{
     height: 100%;
     width: 100%;
 
-    background-color: white;
+    background-color: #a64dff;
     display: flex;
     justify-content: space-between;
     align-items: center;

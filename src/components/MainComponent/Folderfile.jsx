@@ -7,12 +7,12 @@ function Folderfile(props) {
 
         if (Object.keys(props.presentdatax) == 0 && typeof(props.presentdatax) == "object") {
             console.log("no document")
-            let createfile = prompt()
-            axios.post('http://localhost:8000/addDocument', { collectionname: props.location[0], renamevalue: createfile })
+            let createlink = prompt()
+            axios.post('http://localhost:8000/addDocument', { collectionname: props.location[0], renamevalue: createlink })
 
             props.changer[1]((item) => {
                 return (
-                    createfile
+                    createlink
                 )
             })
             
@@ -41,8 +41,8 @@ function Folderfile(props) {
 
     }
     
-    function fileCreate() {
-        console.log("file created", JSON.stringify(props.presentdatax), "ori", props.rendererholder);
+    function linkCreate() {
+        console.log("link created", JSON.stringify(props.presentdatax), "ori", props.rendererholder);
 
         console.log("folder created");
         if (props.presentdatax == "") {
@@ -50,17 +50,17 @@ function Folderfile(props) {
             props.fileadder()
         } else if (Object.keys(props.presentdatax).length >= 1 && typeof(props.presentdatax) == "object") {
             // console.log(props.rendererholder[0], "only folders")
-            window.alert("can't create file")
+            window.alert("can't create link")
         }else {
             // console.log(props.rendererholder, "not file")
-            window.alert("can't create file")
+            window.alert("can't create link")
         }
 
     }
     return (
         <div className="folderfilecreator" style={{backgroundColor: "violet", border: "none", borderRadius: "2px", display: "flex", flexDirection: "column", width: "100px", padding: "10px", boxSizing: "border-box", position: "absolute", top: "0px", right: "50px"}}>
             <button onClick={folderCreate}>Folder</button>
-            <button onClick={fileCreate}>Link</button>
+            <button onClick={linkCreate}>Link</button>
         </div>
     )
 }

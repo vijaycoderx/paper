@@ -28,11 +28,6 @@ function App() {
     x(); x(); x()
     // x()
     
-    // async function y() {
-    //   let d = await wholedata
-    //   console.log(await wholedata)
-    // }
-    
     
   }, [CHANGER])
   
@@ -57,7 +52,7 @@ function App() {
 
     //   <Apicall />
     // </div>
-    <div style={{backgroundColor: "skyblue"}}>
+    <div>
       <header className='headerlayout'>
         <Navbar />
       </header>

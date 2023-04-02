@@ -4,7 +4,7 @@
 }
 
 .headerlayout{
-  height: 10vh;
+  height: 8vh;
   width: 100vw;
 
   padding: 0px 20px;
@@ -13,16 +13,21 @@
 }
 
 .mainlayout{
-  height: 80vh;
+  height: 85vh;
   width: 100vw;
 
   padding: 5px 20px;
   box-sizing: border-box;
   /* background-color: rgb(235, 102, 252); */
+  /* background-color: red; */
 }
 
 .footerlayout{
-  height: 10vh;
+  height: 7vh;
   width: 100vw;
-  background-color: rgb(232, 85, 251);
+  
+  /* background-color: rgb(232, 85, 251); */
+  padding: 0px 20px;
+  box-sizing: border-box;
+  
 }

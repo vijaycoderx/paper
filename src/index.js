@@ -5,10 +5,19 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import DownloadPaper from './components/DownloadPaper/DownloadPaper';
+import Home from './components/HomePage/Home.jsx';
+
+import { Auth0Provider } from "@auth0/auth0-react";
+
+
 
 const router = createBrowserRouter([
   {
     path: '/',
+    element: <Home />
+  },
+  {
+    path: '/admin',
     element: <App />
   },
   {
