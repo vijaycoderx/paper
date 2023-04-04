@@ -12,7 +12,9 @@ function Selector(props) {
     
     if (typeof (props.presentdata[0]) == "object") {
         for (let i = 0; i < Object.keys(props.presentdata[0]).length; i++){
-            optionsholder = [...optionsholder, <option>{Object.keys(props.presentdata[0])[i]}</option>]
+            console.log(Object.keys(props.presentdata[0])[i], props.name, Object.keys(props.presentdata[0])[i].substring(0, Object.keys(props.presentdata[0])[i].length-1))
+            // optionsholder = [...optionsholder, <option>{Object.keys(props.presentdata[0])[i]}</option>]
+            props.name == 1 ? optionsholder = [...optionsholder, <option>{Object.keys(props.presentdata[0])[i].substring(0, Object.keys(props.presentdata[0])[i].length - 1)}</option>] : optionsholder = [...optionsholder, <option>{Object.keys(props.presentdata[0])[i]}</option>]
         }   
     }
     else if (typeof (props.presentdata[0]) == "string") {
@@ -43,7 +45,7 @@ function Selector(props) {
             // very imp line changing raw link to short line
             // typeof (props.presentdata[0]) == "object" ? props.presentdata[1](props.presentdata[0][event.target.value]) : props.presentdata[1](props.presentdata[0])
 
-            typeof (props.presentdata[0]) == "object" ? props.presentdata[1](props.presentdata[0][event.target.value]) : props.presentdata[1](props.presentdata[0])
+            props.name == 1 ? typeof (props.presentdata[0]) == "object" ? props.presentdata[1](props.presentdata[0][event.target.value + "s"]) : props.presentdata[1](props.presentdata[0]) : typeof (props.presentdata[0]) == "object" ? props.presentdata[1](props.presentdata[0][event.target.value]) : props.presentdata[1](props.presentdata[0])
     
             props.counter[1]((item) => item + 1)
     
@@ -55,7 +57,7 @@ function Selector(props) {
 
     return (
         <div className="selectholder" style={{padding:"10px 0px", margin:"0px 10px 0px 0px"}}>
-            <select name="" id="" onChange={(event) => changed(event)} style={{width: "40vw", height: "50px",border:"none", borderRadius:"10px", outline: "none", fontSize:"1.25em", fontFamily:"sans-serif", fontWeight:"bold"}}>{optionsholder}</select>
+            <select name="" id="" onChange={(event) => changed(event)} style={{width: "25vw", height: "50px",border:"none", borderRadius:"10px", outline: "none", fontSize:"1.25em", fontFamily:"sans-serif", fontWeight:"bold"}}>{optionsholder}</select>
             <br></br>
         </div>    
     )

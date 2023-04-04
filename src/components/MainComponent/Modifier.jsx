@@ -66,7 +66,7 @@ function Modifier(props) {
         // { locationx: props.data.collec }
         if (props.category == "folder") {
             console.log("folder dataall", { ...props.coredata })
-            axios.post('http://localhost:8000/update', {collectionname: props.name, renamevalue: renamevalue, category: props.category} )
+            axios.post('http://localhost:8000/update', {collectionname: props.name, renamevalue: renamevalue + "s", category: props.category} )
             console.log("server data", props.coredata, props.changer)
 
             props.changer[1]((item) => {
@@ -245,9 +245,11 @@ function Modifier(props) {
     }
     
     return (
-        <div className="propertyholder" style={{backgroundColor: "violet", border: "none", borderRadius: "2px", display: "flex", flexDirection: "column", width: "100px", padding: "10px", boxSizing: "border-box", position: "absolute", top: "20px", left: "20px", zIndex: 2}}>
-            <button onClick={rename}>Raname</button>
-            <button onClick={deleteData}>Delete</button>
+        
+        <div className="propertyholder" style={{backgroundColor: "#ffb3b3", border: "none", borderRadius: "2.5px", display: "flex", flexDirection: "column", width: "inherit", boxSizing: "border-box", position: "absolute", overflow:"hidden", padding:"2px"}}>
+            <button onClick={rename} style={{ backgroundColor: "inherit", width: "inherit" }}><p style={{ fontSize: "1.25em" }}>Raname</p></button>
+            <p style={{height:"2px", backgroundColor:"gray"}}></p>
+            <button onClick={deleteData} style={{backgroundColor:"inherit", width:"inherit"}}><p style={{fontSize:"1.25em"}}>Delete</p></button>
         </div>
     )
 }

@@ -58,9 +58,10 @@ function Folderfile(props) {
 
     }
     return (
-        <div className="folderfilecreator" style={{backgroundColor: "violet", border: "none", borderRadius: "2px", display: "flex", flexDirection: "column", width: "100px", padding: "10px", boxSizing: "border-box", position: "absolute", top: "0px", right: "50px"}}>
-            <button onClick={folderCreate}>Folder</button>
-            <button onClick={linkCreate}>Link</button>
+        <div className="folderfilecreator" style={{backgroundColor: "#ffb3b3", border: "none", borderRadius: "2.5px", display: "flex", flexDirection: "column", width: "inherit", padding: "2px", boxSizing: "border-box", position: "absolute", top: "0px", right: "50px"}}>
+            <button onClick={folderCreate} style={{ backgroundColor: "inherit", width: "inherit" }}><p style={{ fontSize: "1.25em" }}>Folder</p></button>
+            <p style={{height:"2px", backgroundColor:"gray"}}></p>
+            <button onClick={linkCreate} style={{backgroundColor:"inherit", width:"inherit"}}><p style={{ fontSize: "1.25em" }}>Link</p></button>
         </div>
     )
 }

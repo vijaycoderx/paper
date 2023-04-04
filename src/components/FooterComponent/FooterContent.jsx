@@ -4,7 +4,9 @@ import './FooterContent.css'
 function FooterContent() {
     
     return (
-        <div className="footercontentx"></div>
+        <div className="footercontentx">
+            <p>Made with ❤️</p>
+        </div>
     )
 };
 

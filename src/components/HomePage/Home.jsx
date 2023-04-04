@@ -1,10 +1,10 @@
 import React from 'react';
 import './Home.css'
 import logo from './books.png'
-import qa from './qa.png'
+import qa from './qface.png'
 import download from './download.png'
-import time from './time.png'
-import multiple from './geometry.png'
+import time from './write.png'
+import multiple from './drawing.png'
 import {Link} from 'react-router-dom'
 
 function Home() {
@@ -34,7 +34,7 @@ function Home() {
                     </div>
                     <div className="card">
                     <img src={multiple} alt="" />
-                        <p>Multiple Options</p>
+                        <p>Huge Question Bank</p>
                     </div>
                 </div>
             </div>

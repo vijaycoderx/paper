@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import Modifier from "./Modifier";
-import subfolderpng from './png/folder.png';
+import subfolderpng from './subfolder.png';
 
 
 function Subfolder(props) {
@@ -106,7 +106,8 @@ function Subfolder(props) {
     console.log("seeeeeeeeeeeeeeeeeeeeex", props.idholder)
     return (
         // #99ff99
-        <div style={{ backgroundColor: "#ffe6ff", height: "100px", width: "100px", display: "flex", alignItems: "center", margin: "2px 0px", flexDirection: "column", boxSizing: "border-box", border: "none", borderRadius: "10px", justifyContent: "center", margin:"10px 10px"}} onClick={subclick}>
+        // #ffe6ff
+        <div style={{ backgroundColor: "#f2f2f2", height: "100px", width: "100px", display: "flex", alignItems: "center", margin: "2px 0px", flexDirection: "column", boxSizing: "border-box", border: "none", borderRadius: "10px", justifyContent: "center", margin:"10px 10px", padding:"5px"}} onClick={subclick}>
             <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", backgroundColor: "inherit", alignSelf: "center", width: "100%" }}>
                 {/* "https://img.icons8.com/color/60/null/folder-invoices--v1.png" */}
                 <img src={subfolderpng} />

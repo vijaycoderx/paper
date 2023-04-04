@@ -157,7 +157,7 @@ function Folder(props) {
 
             
             <div style={{width: "100%", alignSelf: "flex-start", backgroundColor: "inherit", borderRadius: "10px"}}>
-                <p style={{fontFamily: "consolas"}} >{props.name}</p>
+                <p style={{fontFamily: "consolas"}} >{props.name.substring(0, (props.name.length-1))}</p>
             </div>
             
         </div>

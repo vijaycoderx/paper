@@ -12,24 +12,26 @@
 .imgholder{
    /* background-color: white; */
    height: 35vh;
+   box-sizing: border-box;
+   padding: 5PX 0PX;
 }
 
 ::-webkit-scrollbar{
     width: 20px;
 }
 
-/* Track */
+
 ::-webkit-scrollbar-track {
     background: transparent; 
   }
    
-  /* Handle */
+
   ::-webkit-scrollbar-thumb {
     background: white;
     border-radius: 10px; 
   }
   
-  /* Handle on hover */
+ 
   ::-webkit-scrollbar-thumb:hover {
     background: white; 
   }
@@ -37,6 +39,7 @@
 
 
 .container .downloadholder{
+  margin-left: 30PX;
     height: 40vh;
     display: flex;
     flex-direction: column;
@@ -48,4 +51,5 @@
     /* background-color: red; */
     overflow-y: scroll;
     /* margin: 0px 20px; */
+    box-sizing: border-box;
 }

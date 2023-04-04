@@ -13,7 +13,7 @@ function Navbar() {
             <div className="navbar">
                 <div> <img src={logo} alt="" /><p>Q-Download</p></div>
                 <ul style={{listStyle: "none outside"}}>
-                    <li><img src={userpng} alt="" /></li>
+                    {/* <li><img src={userpng} alt="" /></li> */}
                 </ul>
             </div>
             <hr />
