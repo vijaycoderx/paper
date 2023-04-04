@@ -1,24 +1,51 @@
 .container{
-    background-color: #a64dff;
+    /* background-color: #a64dff; */
+    background: linear-gradient(135deg, #a64dff, violet);
     width: 100vw;
     height: 100vh;
     display: flex;
     flex-direction: column;
     /* justify-content: center; */
     align-items: center;
-    
-
-
 
 }
+.imgholder{
+   /* background-color: white; */
+   height: 35vh;
+}
+
+::-webkit-scrollbar{
+    width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: transparent; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: white;
+    border-radius: 10px; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: white; 
+  }
+
+
 
 .container .downloadholder{
-    
+    height: 40vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     position: relative;
     /* top: 0%; */
-    top: 20vh;
+    /* top: 20vh; */
+    /* background-color: red; */
+    overflow-y: scroll;
+    /* margin: 0px 20px; */
 }

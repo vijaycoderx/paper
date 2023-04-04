@@ -16,7 +16,7 @@ function Home() {
                 <div></div>
                 <div></div>
                 <div><Link to='/download' className='linkto'>Download</Link></div>
-                <div><Link to='/admin' className='linkto'>SignIn</Link></div>
+                <div><Link to='/admin' className='linkto'>Admin</Link></div>
             </div>
             <div className="bodycontent">
                 <div className="overview">

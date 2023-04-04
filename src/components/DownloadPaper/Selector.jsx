@@ -19,7 +19,9 @@ function Selector(props) {
         if (props.presentdata[0] == "") {
             optionsholder=<option>no file</option>
         } else {
-            optionsholder=<option>{props.presentdata[0]}</option>
+            // changing link short text
+            // optionsholder=<option>{props.presentdata[0]}</option>
+            optionsholder=<option>pdf available</option>
         }
         
     }
@@ -38,6 +40,9 @@ function Selector(props) {
     
             props.options[1]((item) => [...item.splice(0, props.name)])
     
+            // very imp line changing raw link to short line
+            // typeof (props.presentdata[0]) == "object" ? props.presentdata[1](props.presentdata[0][event.target.value]) : props.presentdata[1](props.presentdata[0])
+
             typeof (props.presentdata[0]) == "object" ? props.presentdata[1](props.presentdata[0][event.target.value]) : props.presentdata[1](props.presentdata[0])
     
             props.counter[1]((item) => item + 1)
@@ -49,10 +54,10 @@ function Selector(props) {
     }
 
     return (
-        <>
+        <div className="selectholder" style={{padding:"10px 0px", margin:"0px 10px 0px 0px"}}>
             <select name="" id="" onChange={(event) => changed(event)} style={{width: "40vw", height: "50px",border:"none", borderRadius:"10px", outline: "none", fontSize:"1.25em", fontFamily:"sans-serif", fontWeight:"bold"}}>{optionsholder}</select>
             <br></br>
-        </>    
+        </div>    
     )
 }
 

@@ -507,7 +507,7 @@ function MainContent(props) {
     return (
         <div className="maincontainer">
 
-            <div className="dirbar">
+            {/* <div className="dirbar">
                 <p style={{backgroundColor:"black", color:"white", border:"none", borderRadius:"5px", fontSize:"1.5em", display:"flex", justifyContent:"center", alignItems:"center"}}>Directory:</p>
                 <p style={{height:"100%", display:"flex", justifyContent:"center", alignItems:"center", backgroundColor:"inherit"}}>{location.map((itemx) => {
                          
@@ -531,7 +531,7 @@ function MainContent(props) {
                         }} >{itemx}</button><p style={{display: "inline", fontSize:"1.25em"}}> / </p></div>
                     )
                 })}</p>
-            </div>
+            </div> */}
             
             
             
@@ -560,7 +560,7 @@ function MainContent(props) {
                             <img src="https://img.icons8.com/parakeet/48/null/add.png" alt="" />
                         </div>
                     </div>
-                    <hr />
+                    {/* <hr style={{height:"1px", backgroundColor:"blue"}} /> */}
 
                     <div className="dataside">
                         {render_boarddata}
@@ -571,6 +571,37 @@ function MainContent(props) {
 
                 <div className="mainsection" style={{ position: "relative", zIndex: 1 }}>
                     <div className="topdataside" >
+
+
+                    <div className="dirbar">
+                        <p style={{backgroundColor:"", color:"black", border:"none", borderRadius:"5px", fontSize:"1.5em", display:"flex", justifyContent:"center", alignItems:"center"}}>Directory:</p>
+                        <p style={{height:"100%", display:"flex", justifyContent:"center", alignItems:"center", backgroundColor:"inherit", margin:"0px 10px"}}>{location.map((itemx) => {
+                                
+                            return (
+                                <div style={{ display:"flex", justifyContent:"center", alignItems:"center" }}><button style={{ display: "inline", height:"inherit", fontSize:"1.25em", backgroundColor:"lightgreen", padding:"5px 5px", border:"none", borderRadius:"10px", margin:"0px 5px"}} onClick={() => {
+                                    // console.log("heeeeey daaaaaaaaaaaaaaaaaata", props.data[itemx], renderer, "in", )
+                                    // console.log("renderer", renderer, "list", location, location.indexOf('jetin'))
+                                    let loclocation = []
+                                    for (let i = 0; i <= location.indexOf(itemx); i++){
+                                        loclocation.push(location[i])
+                                    }
+
+                                    setlocation((data) => {
+
+                                        return (
+                                            loclocation
+                                        )
+                                    })
+
+                                                
+                                }} >{itemx}</button><p style={{display: "inline", fontSize:"1.25em"}}>/</p></div>
+                            )
+                        })}</p>
+                    </div>
+
+
+
+
                         {/* <img src="https://img.icons8.com/parakeet/48/null/add.png" alt="" onClick={dataAdder} /> */}
                         <div className="topimgholder" style={{ position: "relative"}}>
                             <img src="https://img.icons8.com/parakeet/48/null/add.png" alt="" onClick={() => filefolder.filefolderselected ? setfilefolder({filefolderselected : false}) : setfilefolder({filefolderselected : true})} />

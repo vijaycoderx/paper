@@ -17,7 +17,7 @@ function Link(props) {
     }
 
     return (
-        <div style={{border: "none", boxSizing:"border-box", backgroundColor:"#ffcc99", borderRadius:"10px", height:"100px", width:"100px", margin:"10px 0px"}}>
+        <div style={{border: "none", boxSizing:"border-box", backgroundColor:"#ffe6ff", borderRadius:"10px", height:"100px", width:"100px", margin:"10px 10px"}}>
             {/* "https://img.icons8.com/external-prettycons-flat-prettycons/94/null/external-link-social-media-prettycons-flat-prettycons.png" */}
             <div className="linktop" style={{display:"flex", justifyContent:"center", alignItems:"center"}}>
                 <img src={linkpng} alt="" />

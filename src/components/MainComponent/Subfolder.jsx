@@ -1,15 +1,12 @@
 import React, { useEffect } from "react";
 import Modifier from "./Modifier";
-import subfolderpng from './subfolder.png';
+import subfolderpng from './png/folder.png';
 
 
 function Subfolder(props) {
     console.log(props.idholder)
-    // useEffect(() => {
-    //     console.log(props.name, "dots", props.dotselector[0])
-    // }, [props.dotselector[0]])
     
-    
+   
     function subclick() {
         console.log(props.name)
         props.globallocation[1]((item) => {
@@ -108,7 +105,8 @@ function Subfolder(props) {
     }
     console.log("seeeeeeeeeeeeeeeeeeeeex", props.idholder)
     return (
-        <div style={{ backgroundColor: "#99ff99", height: "100px", width: "100px", display: "flex", alignItems: "center", margin: "2px 0px", flexDirection: "column", boxSizing: "border-box", border: "none", borderRadius: "10px", justifyContent: "center", margin:"10px 0px"}} onClick={subclick}>
+        // #99ff99
+        <div style={{ backgroundColor: "#ffe6ff", height: "100px", width: "100px", display: "flex", alignItems: "center", margin: "2px 0px", flexDirection: "column", boxSizing: "border-box", border: "none", borderRadius: "10px", justifyContent: "center", margin:"10px 10px"}} onClick={subclick}>
             <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", backgroundColor: "inherit", alignSelf: "center", width: "100%" }}>
                 {/* "https://img.icons8.com/color/60/null/folder-invoices--v1.png" */}
                 <img src={subfolderpng} />
