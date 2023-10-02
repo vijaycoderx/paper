@@ -16,7 +16,6 @@ function Folderfile(props) {
                 )
             })
             
-            // props.rendererholder = [{"fred": ""}]
         } else if (Object.keys(props.presentdatax).length >= 1 && typeof(props.presentdatax) == "object") {
             console.log("folder object")
             props.folderadder()
@@ -27,18 +26,7 @@ function Folderfile(props) {
         } else {
             window.alert("can't create folder")
         }
-        // else if (props.rendererholder.length === 1 && props.rendererholder[0] == "") {
-        //     console.log(props.rendererholder[0], "folder or file", props.rendererholder)
-        //     props.folderadder()
-            
-        // } else if (props.rendererholder.length >= 1 && typeof(props.rendererholder[0]) == "object") {
-        //     console.log(props.rendererholder, "only folders")
-        //     props.folderadder()
-        // }else {
-        //     console.log(props.rendererholder, "not file")
-        //     window.alert("can't create folder")
-        // }
-
+        
     }
     
     function linkCreate() {
